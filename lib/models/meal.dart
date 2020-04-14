@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 enum Complexity {
   Simple,
@@ -42,4 +43,44 @@ class Meal {
     @required this.complexity,
     @required this.cost,
   });
+
+  String get complexityText {
+    switch(complexity) {
+      case Complexity.Simple:
+        return 'Fácil';
+      case Complexity.Medium:
+        return 'Médio';
+      case Complexity.Hard:
+        return 'Difícil';
+      default:
+        return '';
+    }
+  }
+
+    Widget get costWidget {
+    switch(cost) {
+      case Cost.Cheap:
+        return Row(children: <Widget>[
+                Icon(Icons.attach_money),
+                Icon(Icons.attach_money),
+                Icon(Icons.attach_money),
+               ],);
+      case Cost.Fair:
+        return  Row(children: <Widget>[
+                Icon(Icons.attach_money),
+                Icon(Icons.attach_money),
+                
+               ],);
+      case Cost.Expensive:
+        return Row(children: <Widget>[
+                Icon(Icons.attach_money),
+                Icon(Icons.attach_money),
+                Icon(Icons.attach_money),
+               ],);
+      default:
+        return Row(children: <Widget>[
+                Icon(Icons.attach_money)
+               ],);
+     }
+  }
 }
