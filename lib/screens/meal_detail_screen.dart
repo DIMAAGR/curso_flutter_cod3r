@@ -22,9 +22,6 @@ class MealDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final meal = ModalRoute.of(context).settings.arguments as Meal;
-     print(meal.categories);
-
-
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
@@ -63,9 +60,10 @@ class MealDetailScreen extends StatelessWidget {
                   child: Text(
                     meal.title,
                     style: TextStyle(
-                      fontSize: 30,
-                      fontFamily: 'RobotoCondensed',
-                      fontWeight: FontWeight.w300
+                      fontSize: 28,
+                      color: Colors.black87,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ),
@@ -127,7 +125,17 @@ class MealDetailScreen extends StatelessWidget {
                  ),
              ),
        ],),   
-                   ChipCategoryList(meal.categories),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     children: <Widget>[
+                       Padding(
+                         padding: const EdgeInsets.only(
+                           left: 5
+                         ),
+                         child: ChipCategoryList(meal.categories),
+                       ),
+                     ],
+                   ),
                    Divider(),
                   _createSectionTitle(context, 'Ingredientes'),
                    Container(

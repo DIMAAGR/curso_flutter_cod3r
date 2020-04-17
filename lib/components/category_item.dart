@@ -19,24 +19,27 @@ const CategoryItem(this.category);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => _selectCategory(context),
-      borderRadius: BorderRadius.circular(15),
-      splashColor: Theme.of(context).primaryColor,
-          child: Container(
-        child: Text(
-          category.title,
-          style: Theme.of(context).textTheme.title,
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
-            colors: [
-              category.color.withOpacity(0.5),
-              category.color
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () => _selectCategory(context),
+        borderRadius: BorderRadius.circular(15),
+        splashColor: Theme.of(context).primaryColor,
+            child: Container(
+          child: Text(
+            category.title,
+            style: Theme.of(context).textTheme.title,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            gradient: LinearGradient(
+              colors: [
+                category.color.withOpacity(0.5),
+                category.color
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight
+            ),
           ),
         ),
       ),
