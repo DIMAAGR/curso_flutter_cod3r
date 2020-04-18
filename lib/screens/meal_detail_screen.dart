@@ -5,6 +5,11 @@ import '../models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
 
+  final Function(Meal) onToggleFavorite;
+  final Function(Meal) isFavorite;
+
+  const MealDetailScreen(this.onToggleFavorite, this.isFavorite);
+
   Widget _createSectionTitle(BuildContext context, String title){
      return Container(
        alignment: Alignment.centerRight,
@@ -120,8 +125,10 @@ class MealDetailScreen extends StatelessWidget {
                ),
                child: IconButton(
                  iconSize: 26,
-                 icon: Icon(Icons.favorite_border),
-                 onPressed: () {},
+                 icon: Icon(isFavorite(meal) ? Icons.favorite : Icons.favorite_border),
+                 onPressed: () {
+                   onToggleFavorite(meal);
+                 },
                  ),
              ),
        ],),   
